@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './index.scss'
 
 class Tab extends Component {
@@ -30,18 +30,19 @@ class Tab extends Component {
 
     render() {
         const { tabs } = this.state
+        const isActive = ({isActive}) => isActive ? 'tab-item active': 'tab-item'
         return (
             <div className='tab'>
                {
                 tabs.map(tab => {
                     return (
-                        <Link
-                            className='tab-item'
+                        <NavLink
+                            className={isActive}
                             to={tab.path}
                             key={tab.path}
                         >
-                            <span className="tab-link">{tab.name}</span>    
-                        </Link>
+                            <span className="tab-link">{ tab.name }</span>    
+                        </NavLink>
                     )
                 })
                }

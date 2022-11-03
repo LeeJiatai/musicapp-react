@@ -15,6 +15,7 @@ class App extends Component {
           <Header></Header>
           <Tab></Tab>
           <Routes>
+            <Route path="/" exact element={ <Recommend /> } />
             <Route path="/recommend" exact element={ <Recommend /> } />
             <Route path="/top-list" exact element={ <TopList /> } />
             <Route path="/singer" exact element={ <Singer /> } />

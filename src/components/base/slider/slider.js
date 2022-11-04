@@ -20,7 +20,7 @@ class Slider extends Component {
         return (
             <div
                 className='slider'
-                ref={((rootRef) => this.rootRef = rootRef)}    
+                ref={((rootRef) => this.rootRef = rootRef)}
             >
                 <div className='slider-group'>
                     {

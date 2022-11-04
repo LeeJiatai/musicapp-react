@@ -14,18 +14,55 @@ class Recommend extends Component {
     }
 
     render() {
-        const { sliders } = this.state
         return (
             <div className='recommend'>
-                <div className='recommend-content'>
-                    <div className='slider-wrapper'>
-                        <div className='slider-content'>
-                            {
-                                sliders.length ? <Slider sliders={sliders}></Slider> : null
-                            }
-                            
-                        </div>
+                <div
+                    className='recommend-content'
+                >
+                    { this.getRecommendContent() }
+                </div>
+            </div>
+        )
+    }
+
+    getRecommendContent() {
+        const { sliders, albums } = this.state
+
+        return (
+            <div>
+                <div className='slider-wrapper'>
+                    <div className='slider-content'>
+                        {
+                            sliders.length ? <Slider sliders={sliders}></Slider> : null
+                        }
+                        
                     </div>
+                </div>
+
+                <div className='recommend-list'>
+                    <h1 className='list-title'>热门歌单推荐</h1>
+
+                    <ul>
+                        {
+                            albums.map(item => {
+                                return (
+                                    <li
+                                        className='item'
+                                        key={item.id}
+                                    >
+                                        <div className='icon'>
+                                            <img src={item.pic} alt="" />
+                                        </div>
+
+                                        <div className="text">
+                                            <h2 className="name">{ item.username }</h2>
+                                            <p className="title">{ item.title }</p>
+                                        </div>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
                 </div>
             </div>
         )
